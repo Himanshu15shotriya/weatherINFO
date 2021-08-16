@@ -19,6 +19,7 @@ const monthNames = ["January", "February", "March", "April", "May", "June", "Jul
 
 dateElement.textContent = new Date().getDate() + "  " + monthNames[new Date().getMonth()].substring(0, 9);
 
+weatherCondition.textContent = "weather info"
 locationElement.textContent = `Made with ❤️ by Himanshu`;
 
 
@@ -27,18 +28,17 @@ weatherForm.addEventListener('submit', (event) => {
     locationElement.textContent = "Loading...";
     tempElement.textContent = "";
     weatherCondition.textContent = "";
+    weatherICON.className = "";
     const locationApi = fetchWeather + "?address=" + search.value;
     fetch(locationApi).then(response => {
-        response.json().then(data => {
+        response.json().then((data) => {
             if(data.error) {
-                locationElement.textContent = `Unable to find city ${data.cityName}`;
+                locationElement.textContent = data.error;
                 tempElement.textContent = "";
                 weatherCondition.textContent = "";
             } else {
-                console.log()
-                
-                locationElement.textContent = data.cityName;
-                tempElement.textContent = (data.temperature - 273.5).toFixed(2) + String.fromCharCode(176);
+                locationElement.textContent = data.cityName +" "+ data.country
+                tempElement.textContent = Math.round(data.temperature - 273.15) + "\u2103";
                 
                 weatherCondition.textContent = data.description.toUpperCase();
                 if(data.description == "haze") {
@@ -65,6 +65,8 @@ weatherForm.addEventListener('submit', (event) => {
                     weatherICON.className = "fas fa-cloud"
                 } else if(data.description == "mist") {
                     weatherICON.className = "fas fa-smog"
+                }else if(data.description == "light intensity shower rain") {
+                    weatherICON.className = "fas fa-cloud-sun-rain"
                 } else{
                     weatherICON.className = "fas fa-sun"
                 }

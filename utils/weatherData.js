@@ -13,7 +13,7 @@ const weatherData = (address, callback) => {
                 temperature: body.main.temp,
                 description: body.weather[0].description,
                 cityName: body.name,
-                feelsLike : body.main.feels_like
+                country : body.sys.country
             })
         }
     })

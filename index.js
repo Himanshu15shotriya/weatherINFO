@@ -46,17 +46,17 @@ const address = req.query.address
         })
     }
 
-    weatherData(address, (error, {temperature, description, cityName , feelsLike} = {}) => {
+    weatherData(address, (error, {temperature, description, cityName ,country} = {}) => {
         if(error) {
             return res.send({
-                error
+                error : `Unable to find ${req.query.address}`
             })
         }
         res.send({
             temperature,
             description,
             cityName,
-            feelsLike
+            country
         })
     })
 })
