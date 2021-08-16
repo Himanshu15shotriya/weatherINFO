@@ -43,7 +43,7 @@ h2 {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   background-color: #eec0c6;
-  background-image: linear-gradient(90deg, #eec0c6 0%, #7ee8fa 98%);    
+  background-image: linear-gradient(90deg, #eec0c6 0%, #7ee8fa 150%);    
   box-shadow: 4px 30px 30px rgba(0, 0, 0, 0.3);
 }
 
@@ -116,7 +116,7 @@ h2 {
   flex: 0 0 75%;
   height: 45%;
   background-color: #eec0c6;
-  background-image: linear-gradient(90deg, #eec0c6 0%, #7ee8fa 98%);
+  background-image: linear-gradient(90deg, #eec0c6 0%, #7ee8fa 150%);
   border-bottom-left-radius: 20px;
   display: flex;
   align-items: center;
@@ -154,7 +154,7 @@ h2 {
 .widget .date {
   flex: 0 0 25%;
   height: 45%;
-  background-color: #7ee8fa;
+  background-color: #A8D9E6;
   border-bottom-right-radius: 20px;
   display: flex;
   justify-content: space-around;
