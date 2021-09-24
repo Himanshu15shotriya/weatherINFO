@@ -37,6 +37,7 @@ weatherForm.addEventListener('submit', (event) => {
                 tempElement.textContent = "";
                 weatherCondition.textContent = "";
             } else {
+                search.value = ""
                 locationElement.textContent = data.cityName +" "+ data.country
                 tempElement.textContent = Math.round(data.temperature - 273.15) + "\u2103";
                 
